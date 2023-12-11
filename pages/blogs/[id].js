@@ -82,28 +82,28 @@ export default function BlogPage({ blog_data }) {
   );
 }
 
-export async function getStaticPaths() {
-    // Return a list of possible value for id
-    const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const response_blogs = await notion.databases.query({
-        database_id: process.env.NOTION_DATABSE_ID,
-    });
+// export async function getStaticPaths() {
+//     // Return a list of possible value for id
+//     const notion = new Client({ auth: process.env.NOTION_API_KEY });
+//     const response_blogs = await notion.databases.query({
+//         database_id: process.env.NOTION_DATABSE_ID,
+//     });
 
-    const paths = response_blogs.results.map((blog) => {
-        return {
-          params: {
-            id: blog.id
-          },
-        };
-    });  // cannot pass other properties to params
+//     const paths = response_blogs.results.map((blog) => {
+//         return {
+//           params: {
+//             id: blog.id
+//           },
+//         };
+//     });  // cannot pass other properties to params
 
-    return {
-        paths,
-        fallback: false,
-      };
-}
+//     return {
+//         paths,
+//         fallback: false,
+//       };
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
     // Fetch necessary data for the blog post using params.id
   
     const blog_data = await getBlogData( params.id );
@@ -111,8 +111,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             blog_data
-        },
-        revalidate: 1, // In seconds
+        }
     };
 
 }

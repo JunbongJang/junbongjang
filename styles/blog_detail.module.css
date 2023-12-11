@@ -1,3 +1,10 @@
+.ImageWidthFlex {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .PostDetailContainer {
   display: flex;
@@ -82,6 +89,9 @@
     }
     .PostDetailCard div footer {
         flex-direction: column;
+    }
+    .ImageWidthFlex {
+      width: 100%;
     }
 }
 
