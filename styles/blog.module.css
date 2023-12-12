@@ -168,8 +168,14 @@
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 800px) {
     .list_section {
         grid-template-columns: 1fr;
     }
   }
+
+@media (max-width: 500px) {
+  .blog_container {
+    padding: 1rem 1rem;
+  }
+}

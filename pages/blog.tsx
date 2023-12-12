@@ -23,7 +23,7 @@ export default function Blog({ blogs }) {
   return (
     <>
       <Head>
-        <title>Blog</title>
+        <title>Junbong Jang's Blog</title>
         <meta name="description" content="Junbong Jang's Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -34,7 +34,7 @@ export default function Blog({ blogs }) {
           <p></p>
 
           <h1 className={styles.title}>
-            Embarrassing Blog
+            Blog about Anything
           </h1>
 
           <div className={styles.search_section}>
