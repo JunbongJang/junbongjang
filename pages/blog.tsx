@@ -5,6 +5,7 @@ import styles from '../styles/blog.module.css';
 
 import { formatDistanceToNow } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { useState, useEffect } from 'react'
 
 
 function formatText(text: string, limitLength = 50) {
@@ -16,9 +17,30 @@ function formatText(text: string, limitLength = 50) {
   return `${newText.toString().replaceAll(",", " ")}...`
 }
 
+
 export default function Blog({ blogs }) {
 
-  // console.log('blogs', blogs);
+  
+  // using useEffect, filter out blogs if their title and search text match
+  const [filteredBlogs, setFilteredBlogs] = useState(blogs)
+  const [searchText, setSearchText] = useState('')
+  const [blogCounter, setBlogCounter] = useState(blogs.length)
+
+  useEffect(() => {
+    const filteredBlogs = blogs.filter(blog => {
+      const blog_title = blog.properties.이름.title[0].plain_text;
+
+      return blog_title.toLowerCase().includes(searchText.toLowerCase())
+    })
+    setFilteredBlogs(filteredBlogs);
+    
+    console.log('filteredBlogs', filteredBlogs);
+    console.log('searchText', searchText);
+    setBlogCounter(filteredBlogs.length);
+  }, [searchText, blogs])
+
+  
+
   
   return (
     <>
@@ -39,30 +61,30 @@ export default function Blog({ blogs }) {
 
           <div className={styles.search_section}>
             <div >
-              <span>Search Posts (Not implemented) </span>
-              {/* <small>{postsCounter} total posts</small> */}
+              <span>Search Blogs</span>
+              <small>{blogCounter} total blogs</small>
             </div>
             <input
               type="text"
-              // onBlur={(e) => fetchPosts(e.target.value)}
-              placeholder="Search a Post"
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder="Search blog"
             />
           </div>
 
           <div className={styles.list_section}>
-            {blogs &&
-              blogs.map((book) => (
+            {filteredBlogs &&
+              filteredBlogs.map((blog) => (
                 <Link 
-                  key={book.id}
+                  key={blog.id}
                   href={{
-                    pathname: `/blogs/${book.id}`,
+                    pathname: `/blogs/${blog.id}`,
                   }}
                   className={styles.card}
                 >
                   <header>
-                    <h3>{book.properties.이름.title[0].plain_text}</h3>
+                    <h3>{blog.properties.이름.title[0].plain_text}</h3>
                     <span>{
-                    formatDistanceToNow(new Date(book.created_time), {  // book.properties.생성일.date.start
+                    formatDistanceToNow(new Date(blog.created_time), {  // blog.properties.생성일.date.start
                       locale: enUS,
                       addSuffix: true,
                     })
