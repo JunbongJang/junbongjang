@@ -34,8 +34,8 @@ export default function Blog({ blogs }) {
     })
     setFilteredBlogs(filteredBlogs);
     
-    console.log('filteredBlogs', filteredBlogs);
-    console.log('searchText', searchText);
+    // console.log('filteredBlogs', filteredBlogs);
+    // console.log('searchText', searchText);
     setBlogCounter(filteredBlogs.length);
   }, [searchText, blogs])
 
@@ -45,8 +45,8 @@ export default function Blog({ blogs }) {
   return (
     <>
       <Head>
-        <title>Junbong Jang's Blog</title>
-        <meta name="description" content="Junbong Jang's Blog" />
+        <title>JJ's Blog</title>
+        <meta name="description" content="Junbong Jang's Blog, JJ's Blog" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -67,7 +67,7 @@ export default function Blog({ blogs }) {
             <input
               type="text"
               onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Search blog"
+              placeholder="Search Blogs"
             />
           </div>
 

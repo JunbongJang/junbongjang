@@ -44,36 +44,6 @@ class MyDocument extends Document {
           
             <Script src="https://use.fontawesome.com/fb615be7a2.js" />
             <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
-            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XYP72XXDTN" />
-            
-            <Script strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-
-                gtag('config', 'G-XYP72XXDTN');
-                `
-                }}
-            />
-            
-            {/* <!-- To load arbitrary url path for Single Page Apps on GitHub Pages --> */}
-            <Script strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                __html: `
-            (function(l) {
-                if (l.search[1] === '/' ) {
-                var decoded = l.search.slice(1).split('&').map(function(s) { 
-                    return s.replace(/~and~/g, '&')
-                }).join('?');
-                window.history.replaceState(null, null,
-                    l.pathname.slice(0, -1) + decoded + l.hash
-                );
-                }
-            }(window.location))
-            ` }}
-            />
 
           <Main />
           <NextScript />

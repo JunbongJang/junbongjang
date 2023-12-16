@@ -32,8 +32,9 @@ export default function BlogPage({ blog_data }) {
     <>
         
         <Head>
-            <title>Blog - {updated_blog_data.page_response.properties.이름.title[0].plain_text}</title>
+            <title>{updated_blog_data.page_response.properties.이름.title[0].plain_text}</title>
             <meta name="description" content="junbong jang's blog" />
+            <link rel="icon" href="../../public/images/favicon.ico" />
         </Head>
         
 

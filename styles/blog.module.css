@@ -75,7 +75,7 @@
   }
   
   .title {
-    margin: 5rem 0 1rem;
+    margin: 6rem 0 2rem;
     line-height: 1.15;
     font-size: 3.6rem;
     color: #fefefe;
@@ -177,5 +177,9 @@
 @media (max-width: 500px) {
   .blog_container {
     padding: 1rem 1rem 3rem 1rem;
+  }
+  
+  .title {
+    margin: 5rem 0 1rem;
   }
 }
