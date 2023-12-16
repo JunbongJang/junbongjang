@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Head from 'next/head';
+import Script from "next/script";
 // import '../styles/header.module.css'
 
 import { usePathname } from 'next/navigation'
@@ -27,19 +29,42 @@ export default function Header() {
 
   return (
 
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" fixed="top">
-      <Container>
-        {brandname_navlink}
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" style={{justifyContent: "flex-end"}}>
-          <Nav className="ml-auto">
-            {aboutme_navlink}
-            {projects_navlink}
-            <Link href="/blog" className="nav-link" >Blog</Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    
+    <>
+      <Head>
+
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+
+          <Script strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+              });
+            `}
+        </Script>
+      </Head>
+
+
+      <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" fixed="top">
+        <Container>
+          {brandname_navlink}
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" style={{justifyContent: "flex-end"}}>
+            <Nav className="ml-auto">
+              {aboutme_navlink}
+              {projects_navlink}
+              <Link href="/blog" className="nav-link" >Blog</Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
 
   );
 }
