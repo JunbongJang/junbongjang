@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }) {
                 `}
       </Script>
 
+
       <Header />
       <Component {...pageProps} />
       <Footer />

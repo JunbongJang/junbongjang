@@ -47,7 +47,7 @@ export default function Blog({ blogs }) {
       <Head>
         <title>JJ's Blog</title>
         <meta name="description" content="Junbong Jang's Blog, JJ's Blog" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="images/favicon.ico" />
       </Head>
 
       <main className={styles.blog_container}>

@@ -42,8 +42,8 @@ class MyDocument extends Document {
 
         <body>
           
-            <Script src="https://use.fontawesome.com/fb615be7a2.js" />
-            <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
+          <Script src="https://use.fontawesome.com/fb615be7a2.js" />
+          <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
 
           <Main />
           <NextScript />
