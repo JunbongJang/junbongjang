@@ -44,6 +44,21 @@ class MyDocument extends Document {
           
           <Script src="https://use.fontawesome.com/fb615be7a2.js" />
           <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
+          <Script
+            strategy="afterInteractive "
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+
+          <Script strategy="afterInteractive ">
+            {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+                });
+            `}
+          </Script>
 
           <Main />
           <NextScript />
