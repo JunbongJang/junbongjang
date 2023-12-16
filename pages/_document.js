@@ -46,7 +46,7 @@ class MyDocument extends Document {
           <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
           <Script
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=G-78F2GG95V2`}
           />
 
           <Script strategy="afterInteractive">
@@ -54,7 +54,7 @@ class MyDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                gtag('config', 'G-78F2GG95V2', {
                 page_path: window.location.pathname,
                 });
             `}
