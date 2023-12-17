@@ -185,7 +185,7 @@ const home_body = (
                           <strong>Computer Vision and Pattern Recognition (CVPR), 2023</strong>
                       </p>
                       <p>
-                          <Link href="/projects/contour-tracking" className="link-no-deco"> Project Page </Link> /
+                          <Link href="https://junbongjang.github.io/projects/contour-tracking/index.html" className="link-no-deco"> Project Page </Link> /
                           <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jang_Unsupervised_Contour_Tracking_of_Live_Cells_by_Mechanical_and_Cycle_CVPR_2023_paper.pdf" className="link-no-deco"> Paper </a> /
                           <a href="https://github.com/JunbongJang/contour-tracking" className="link-no-deco"> Code </a>
                       </p>
