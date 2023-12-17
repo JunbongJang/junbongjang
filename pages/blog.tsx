@@ -6,6 +6,8 @@ import styles from '../styles/blog.module.css';
 import { formatDistanceToNow } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { useState, useEffect } from 'react'
+import blog_title_image from "../public/images/blog_title_image_wider.png";
+import Image from 'next/image';
 
 
 function formatText(text: string, limitLength = 50) {
@@ -50,14 +52,18 @@ export default function Blog({ blogs }) {
         <link rel="icon" href="images/favicon.ico" />
       </Head>
 
+      {/* Create image container */}
+      <div className={styles.blog_title_image_container}>
+        <Image className={styles.blog_title_image} src={blog_title_image} alt="JJ's Blog" />
+      </div>
+
       <main className={styles.blog_container}>
         <div className={styles.blog_content}>
+          
 
-          <p></p>
-
-          <h1 className={styles.title}>
-            Blog about Anything
-          </h1>
+          {/* <h1 className={styles.title}>
+            JJ's Blog
+          </h1> */}
 
           <div className={styles.search_section}>
             <div >
