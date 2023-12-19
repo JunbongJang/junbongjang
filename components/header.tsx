@@ -26,8 +26,8 @@ export default function Header() {
 
 
   return (
-
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" fixed="top">
+    // bg-body-tertiary   bg-dark
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" fixed="top"> 
       <Container>
         {brandname_navlink}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

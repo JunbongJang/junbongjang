@@ -48,7 +48,7 @@ class MyDocument extends Document {
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=G-78F2GG95V2`}
           />
-
+          
           <Script strategy="afterInteractive">
             {`
                 window.dataLayer = window.dataLayer || [];
@@ -58,6 +58,9 @@ class MyDocument extends Document {
                 page_path: window.location.pathname,
                 });
             `}
+          </Script>
+          <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7652221922952924"
+                  crossorigin="anonymous" strategy="afterInteractive">
           </Script>
 
           <Main />

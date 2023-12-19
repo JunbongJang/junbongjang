@@ -95,26 +95,28 @@
   font-size: 1.5rem;
 }
 .blog_title_image_container{
-  /* width: 100%;
-  height: 400px;
-  object-position: center; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 100vw; */
-  float: left;
+  
+  background: #071422;
+  text-align: center;
   width: 100%;
 }
 
 
 .blog_title_image {
-  height: 30rem;
-  object-fit: cover;
-  width: 100%;
+  height: 20rem;
+  width:auto; 
+
+  /* object-fit: cover; */
+  /* width: 80%; */
 }
 
 @media (max-width: 992px) {
+  
+  .blog_title_image_container{
+    float: left;
+    width: 100%;
+  }
+
   .blog_title_image {
     /* width: 100% */
     margin-top:2.5rem;
