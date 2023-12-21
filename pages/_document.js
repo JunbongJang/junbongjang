@@ -37,31 +37,33 @@ class MyDocument extends Document {
 
         {/* <!-- Favicon  --> */}
         <link rel="icon" href="images/favicon.ico" />
+
+        
+          
+        <Script src="https://use.fontawesome.com/fb615be7a2.js" />
+        <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-78F2GG95V2`}
+        />
+        
+        <Script strategy="afterInteractive">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-78F2GG95V2', {
+              page_path: window.location.pathname,
+              });
+          `}
+        </Script>
+        <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7652221922952924"
+                crossorigin="anonymous" strategy="afterInteractive">
+        </Script>
         
         </Head>
 
         <body>
-          
-          <Script src="https://use.fontawesome.com/fb615be7a2.js" />
-          <Script src="https://kit.fontawesome.com/348d8fb546.js" crossOrigin="anonymous" />
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=G-78F2GG95V2`}
-          />
-          
-          <Script strategy="afterInteractive">
-            {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-78F2GG95V2', {
-                page_path: window.location.pathname,
-                });
-            `}
-          </Script>
-          <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7652221922952924"
-                  crossorigin="anonymous" strategy="afterInteractive">
-          </Script>
 
           <Main />
           <NextScript />
