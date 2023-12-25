@@ -48,7 +48,7 @@ export default function Blog({ blogs }) {
     <>
       <Head>
         <title>JJ's Blog</title>
-        <meta name="description" content="Junbong Jang's Blog, JJ's Blog" />
+        <meta name="description" content="Junbong Jang's Blog, JJ's Blog about Artificial Inteligence, Amazon Web Service and Life" />
         <link rel="icon" href="images/favicon.ico" />
       </Head>
 
@@ -83,7 +83,7 @@ export default function Blog({ blogs }) {
                 <Link 
                   key={blog.id}
                   href={{
-                    pathname: `/blogs/${blog.id}`,
+                    pathname: `/blog/${blog.id}`,
                   }}
                   className={styles.card}
                 >

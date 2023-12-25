@@ -11,8 +11,10 @@ export default function Text({ title }) {
         bold, code, color, italic, strikethrough, underline,
       },
       text,
+      equation,
     } = value;
-    return (
+    if (text) {
+      return (
         <span
             className={[
             bold ? styles.bold : '',
@@ -26,6 +28,26 @@ export default function Text({ title }) {
         >
             {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
         </span>
+      );
+    } 
+    
+    else {
+      return (
+        <span
+            className={[
+            bold ? styles.bold : '',
+            code ? styles.code : '',
+            italic ? styles.italic : '',
+            strikethrough ? styles.strikethrough : '',
+            underline ? styles.underline : '',
+            ].join(' ')}
+            style={color !== 'default' ? { color } : {}}
+            key={equation.expression}
+        >
+            {equation.expression}
+        </span>
     );
+    }
+    
   });
 }

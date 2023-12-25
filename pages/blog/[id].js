@@ -5,16 +5,31 @@ import Date from '../../components/date';
 import styles from '../../styles/blog_detail.module.css';
 import { Fragment } from 'react';
 import { useState, useEffect } from 'react'
+import Image from 'next/image';
 
 import { renderBlock } from '../../components/notion_renderer';
 
 export default function BlogPage({ blog_data }) {
   // console.log('page_response', blog_data.page_response)
   // console.log('list_of_blocks', ...blog_data.list_of_blocks);
-  // console.log(blog_data.list_of_blocks.length);
 
   const [updated_blog_data, setBlogData] = useState(blog_data)
-  console.log('updated_blog_data', updated_blog_data)
+  console.log('updated_blog_data', updated_blog_data);
+
+
+  let cover_image_url = "";
+  let cover_image_component = null;
+  if (blog_data.page_response.cover != null) {
+    cover_image_url = blog_data.page_response.cover.file.url;
+    cover_image_component = ( 
+      <>
+        <br />
+        <img src={cover_image_url} alt="Blog Cover Image" className={styles.ImageWidthFlex} />
+      </>
+    );
+  }
+  
+  const meta_tag_description = `JJ's Blog, ${updated_blog_data.page_response.properties.이름.title[0].plain_text}`;
   
   // const [isLoading, setLoading] = useState(true)
 
@@ -25,7 +40,6 @@ export default function BlogPage({ blog_data }) {
   //     }
   //     fetchAndSetBlogData();
   //   }, []);
- 
 
 
   return (
@@ -33,7 +47,7 @@ export default function BlogPage({ blog_data }) {
         
         <Head>
             <title>{updated_blog_data.page_response.properties.이름.title[0].plain_text}</title>
-            <meta name="description" content="junbong jang's blog" />
+            <meta name="description" content={meta_tag_description} />
             <link rel="icon" href="images/favicon.ico" />
           
         </Head>
@@ -69,6 +83,10 @@ export default function BlogPage({ blog_data }) {
             </span> */}
           </footer>
         </div>
+
+        {cover_image_component}
+
+
         <div className={styles.PostDetailContent}>
           <div>
             {blog_data.list_of_blocks.map((block) => (
