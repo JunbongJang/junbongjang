@@ -51,7 +51,7 @@ export default function Blog({ blogs }) {
     <>
       <Head>
         <title>JJ's Blog</title>
-        <meta name="description" content="Junbong Jang's Blog, JJ's Blog about Artificial Inteligence, Amazon Web Service and Life" />
+        <meta name="description" content="Junbong Jang's Blog, JJ's Blog about Artificial Inteligence, Amazon Web Service and Life. 장준봉의 테크 블로그" />
         <link rel="icon" href="images/favicon.ico" />
       </Head>
 

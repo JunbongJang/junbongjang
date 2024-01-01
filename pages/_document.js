@@ -10,11 +10,11 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           
           {/* <!-- SEO Meta Tags --> */}
-          <meta name="description" content="Junbong's personal website introducing about himself, his work and research interests" />
-          <meta name="author" content="Junbong Jang" />
+          <meta name="description" content="Junbong's personal website introducing about himself, his work and research interests. 장준봉의 개인 웹사이트" />
+          <meta name="author" content="Junbong Jang, 장준봉" />
 
           {/* <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn --> */}
-          <meta property="og:site_name" content="Junbong Jang" />
+          <meta property="og:site_name" content="Junbong Jang, 장준봉" />
           <meta property="og:site" content="" /> {/*<!-- website link --> */}
           <meta property="og:title" content=""/> {/*<!-- title shown in the actual shared post --> */}
           <meta property="og:description" content="" /> {/*<!-- description shown in the actual shared post --> */}

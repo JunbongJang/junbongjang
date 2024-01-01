@@ -29,7 +29,7 @@ export default function BlogPage({ blog_data }) {
     );
   }
   
-  const meta_tag_description = `JJ's Blog, ${updated_blog_data.page_response.properties.이름.title[0].plain_text}`;
+  const meta_tag_description = `JJ's Blog, 장준봉의 블로그, ${updated_blog_data.page_response.properties.이름.title[0].plain_text}`;
   
   // const [isLoading, setLoading] = useState(true)
 
