@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 import Text from './notion_text';
 import styles from '../styles/blog_detail.module.css';
+import Image from 'next/image';
 
 export function renderBlock(block) {
   const { type, id } = block;
@@ -90,7 +91,7 @@ export function renderBlock(block) {
       const caption = value.caption ? value.caption[0]?.plain_text : '';
       return (
         <figure>
-          <img src={src} alt={caption} className={styles.ImageWidthFlex} />
+          <Image src={src} alt={caption} width="768" height="768" className={styles.ImageWidthFlex} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
