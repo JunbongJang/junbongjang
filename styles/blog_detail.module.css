@@ -1,10 +1,25 @@
 .ImageWidthFlex {
   width: 60%;
+  max-width: 850px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.DisqusCommentBox {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
   max-width: 900px;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .PostDetailContainer {
@@ -24,7 +39,7 @@
 
 .PostDetailCard {
   margin-top: 4rem;
-  max-width: 1000px;
+  max-width: 900px;
   width: 100%;
   height: auto;
   background: #0B1B2B;
@@ -85,10 +100,9 @@
 }
 
 .PostDetailContent {
-  max-width: 1000px;
-  min-height: 680px;
+  max-width: 900px;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem 0rem 1rem 0rem;
   white-space: pre-wrap;
   overflow: hidden;
   

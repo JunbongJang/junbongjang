@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image';
 
 import { renderBlock } from '../../components/notion_renderer';
+import DisqusComments from '../../components/disqus_comments';
 
 export default function BlogPage({ blog_data }) {
   // console.log('page_response', blog_data.page_response)
@@ -45,12 +46,12 @@ export default function BlogPage({ blog_data }) {
   return (
     <>
         
-        <Head>
-            <title>{updated_blog_data.page_response.properties.이름.title[0].plain_text}</title>
-            <meta name="description" content={meta_tag_description} />
-            <link rel="icon" href="images/favicon.ico" />
-          
-        </Head>
+      <Head>
+          <title>{updated_blog_data.page_response.properties.이름.title[0].plain_text}</title>
+          <meta name="description" content={meta_tag_description} />
+          <link rel="icon" href="images/favicon.ico" />
+        
+      </Head>
         
 
       <div className={styles.PostDetailContainer}>
@@ -96,6 +97,11 @@ export default function BlogPage({ blog_data }) {
           </div>
         </div>
 
+      </div>
+      
+      <hr></hr>
+      <div className={styles.DisqusCommentBox}>
+        <DisqusComments blog={blog_data} ></DisqusComments>
       </div>
 
     </>
