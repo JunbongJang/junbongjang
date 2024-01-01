@@ -24,7 +24,7 @@ export default function BlogPage({ blog_data }) {
     cover_image_component = ( 
       <>
         <br />
-        <img src={cover_image_url} alt="Blog Cover Image" className={styles.ImageWidthFlex} />
+        <Image src={cover_image_url} alt="blog cover image" width="768" height="768" className={styles.ImageWidthFlex} />
       </>
     );
   }

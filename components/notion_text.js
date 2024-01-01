@@ -1,5 +1,7 @@
 
 import styles from '../styles/blog_detail.module.css';
+import Latex from 'react-latex-next'
+
 
 export default function Text({ title }) {
   if (!title) {
@@ -44,7 +46,7 @@ export default function Text({ title }) {
             style={color !== 'default' ? { color } : {}}
             key={equation.expression}
         >
-            {equation.expression}
+        {equation.expression}
         </span>
     );
     }
