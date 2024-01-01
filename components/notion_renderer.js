@@ -88,7 +88,7 @@ export function renderBlock(block) {
       );
     case 'image': {
       const src = value.type === 'external' ? value.external.url : value.file.url;
-      const caption = value.caption ? value.caption[0]?.plain_text : '';
+      const caption = 'content image' // value.caption ? value.caption[0]?.plain_text : 'content image';
       return (
         <figure>
           <Image src={src} alt={caption} width="768" height="768" className={styles.ImageWidthFlex} />

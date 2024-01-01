@@ -7,7 +7,7 @@ const DisqusComments = ({ blog }) => {
     title: blog.page_response.properties.이름.title[0].plain_text // Single post title
   }
 
-  console.log('disqusConfig', disqusConfig)
+//   console.log('disqusConfig', disqusConfig)
 
   return (
     <div>
