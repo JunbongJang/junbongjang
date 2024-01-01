@@ -17,7 +17,6 @@ export default function BlogPage({ blog_data }) {
   const [updated_blog_data, setBlogData] = useState(blog_data)
   console.log('updated_blog_data', updated_blog_data);
 
-
   let cover_image_url = "";
   let cover_image_component = null;
   if (blog_data.page_response.cover != null) {
@@ -108,54 +107,54 @@ export default function BlogPage({ blog_data }) {
   );
 }
 
-export async function getStaticPaths() {
-    // Return a list of possible value for id
-    const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const response_blogs = await notion.databases.query({
-        database_id: process.env.NOTION_DATABSE_ID,
-    });
+// export async function getStaticPaths() {
+//     // Return a list of possible value for id
+//     const notion = new Client({ auth: process.env.NOTION_API_KEY });
+//     const response_blogs = await notion.databases.query({
+//         database_id: process.env.NOTION_DATABSE_ID,
+//     });
 
-    const paths = response_blogs.results.map((blog) => {
-        return {
-          params: {
-            id: blog.id
-          },
-        };
-    });  // cannot pass other properties to params
-
-    return {
-        paths,
-        fallback: false,
-      };
-}
-
-export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
-
-  const blog_data = await getBlogData( params.id );
-
-  return {
-      props: {
-          blog_data
-      },
-      revalidate: 1, // In seconds
-  };
-
-}
-
-
-// export async function getServerSideProps({ params }) {
-//     // Fetch necessary data for the blog post using params.id
-  
-//     const blog_data = await getBlogData( params.id );
+//     const paths = response_blogs.results.map((blog) => {
+//         return {
+//           params: {
+//             id: blog.id
+//           },
+//         };
+//     });  // cannot pass other properties to params
 
 //     return {
-//         props: {
-//             blog_data
-//         }
-//     };
+//         paths,
+//         fallback: false,
+//       };
+// }
+
+// export async function getStaticProps({ params }) {
+//   // Fetch necessary data for the blog post using params.id
+
+//   const blog_data = await getBlogData( params.id );
+
+//   return {
+//       props: {
+//           blog_data
+//       },
+//       revalidate: 1, // In seconds
+//   };
 
 // }
+
+
+export async function getServerSideProps({ params }) {
+    // Fetch necessary data for the blog post using params.id
+  
+    const blog_data = await getBlogData( params.id );
+
+    return {
+        props: {
+            blog_data
+        }
+    };
+
+}
 
 async function getBlogData( blog_id ) {
   // Fetch necessary data for the blog post using params.id
