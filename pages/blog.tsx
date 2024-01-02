@@ -155,7 +155,7 @@ export async function getStaticProps() {
       blogs: response_blogs.results,
       // first_blog: response_a_blog.results
     },
-    revalidate: 0,
+    revalidate: 1,
   };
 
 }

@@ -137,7 +137,7 @@ export async function getStaticProps({ params }) {
       props: {
           blog_data
       },
-      revalidate: 0, // no cache
+      revalidate: 1, // In seconds
   };
 
 }
