@@ -92,7 +92,6 @@ export function renderBlock(block) {
       return (
         <figure>
           <Image src={src} alt={caption} width="768" height="768" className={styles.ImageWidthFlex} />
-          {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
     }
