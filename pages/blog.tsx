@@ -139,23 +139,33 @@ export default function Blog({ blogs }) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   const notion = new Client({ auth: process.env.NOTION_API_KEY });
+//   const response_blogs = await notion.databases.query({
+//     database_id: process.env.NOTION_DATABSE_ID,
+//   });
+
+  
+//   return {
+//     props: {
+//       blogs: response_blogs.results,
+//     },
+//     revalidate: 1,
+//   };
+
+// }
+
+
+
+export async function getServerSideProps() {
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const response_blogs = await notion.databases.query({
     database_id: process.env.NOTION_DATABSE_ID,
   });
   
-  // const response_a_blog = await notion.blocks.children.list({
-  //   block_id: response_blogs.results[0].id,
-  // });
-
-  
   return {
     props: {
       blogs: response_blogs.results,
-      // first_blog: response_a_blog.results
-    },
-    revalidate: 1,
+    }
   };
-
 }
