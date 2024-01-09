@@ -13,7 +13,7 @@ import NProgress from 'nprogress'; //nprogress module
 import '../styles/Nprogress.css'; //styles of nprogress
 
 import PullToRefresh from 'react-simple-pull-to-refresh';
-import {Pull, Refresh} from "../components/PullToRefresh/Icon";
+import {Pull, Refresh} from "../components/PullToRefresh/Icon.tsx";
 
 //Route Events. 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
