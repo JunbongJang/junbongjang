@@ -12,8 +12,9 @@ import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import '../styles/Nprogress.css'; //styles of nprogress
 
-import PullToRefresh from 'react-simple-pull-to-refresh';
-import {Pull, Refresh} from "../components/PullToRefresh/icon.tsx";
+// import PullToRefresh from 'react-simple-pull-to-refresh';
+// import {Pull, Refresh} from "../components/PullToRefresh/icon.tsx";
+
 
 //Route Events. 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
@@ -21,7 +22,11 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 // 당겨서 새로고침
-const handleRefresh = () => new Promise<any>(() => location.reload())
+
+const handleRefresh = (location) => new Promise((resolve, reject) => {
+  location.reload();  // not working
+  console.log('@@@@@@@')
+});
 
 
 function MyApp({ Component, pageProps }) {
@@ -29,16 +34,16 @@ function MyApp({ Component, pageProps }) {
     <div>
 
       <Header />
-      <PullToRefresh 
+      {/* <PullToRefresh 
           onRefresh={handleRefresh} 
           pullDownThreshold={80}
           resistance={3}
           maxPullDownDistance={90}
           pullingContent={<Pull/>}
           refreshingContent={<Refresh/>}
-        >
+        > */}
           <Component {...pageProps} />
-        </PullToRefresh>
+        {/* </PullToRefresh> */}
       <Footer />
 
     </div>
