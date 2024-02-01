@@ -10,6 +10,8 @@ import blog_title_image from "../public/images/blog_title_image_wider.png";
 import blog_default_cover_image from "../public/images/blog_default_cover_image.png";
 import Image from 'next/image';
 
+import { NotionAPI } from 'notion-client'
+
 
 function formatText(text: string, limitLength = 50) {
   const textArr = text.split(" ")
@@ -22,7 +24,7 @@ function formatText(text: string, limitLength = 50) {
 
 export default function Blog({ blogs }) {
 
-  
+  console.log(blogs)
   // using useEffect, filter out blogs if their title and search text match
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
   const [searchText, setSearchText] = useState('')
@@ -140,6 +142,16 @@ export default function Blog({ blogs }) {
 }
 
 // export async function getStaticProps() {
+//   const api = new NotionAPI({
+//     activeUser: process.env.NOTION_ACTIVE_USER,
+//     authToken: process.env.NOTION_TOKEN_V2
+//   })
+  
+//   const page = await api.getPage(process.env.NOTION_DATABSE_ID)
+
+//   // convert dict to list
+//   const page_block = Object.keys(page.block).map((key) => page.block[key].value);
+
 //   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 //   const response_blogs = await notion.databases.query({
 //     database_id: process.env.NOTION_DATABSE_ID,
@@ -148,7 +160,7 @@ export default function Blog({ blogs }) {
   
 //   return {
 //     props: {
-//       blogs: response_blogs.results,
+//       blogs: page_block // response_blogs.results,
 //     },
 //     revalidate: 1,
 //   };
@@ -158,6 +170,7 @@ export default function Blog({ blogs }) {
 
 
 export async function getServerSideProps() {
+
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const response_blogs = await notion.databases.query({
     database_id: process.env.NOTION_DATABSE_ID,

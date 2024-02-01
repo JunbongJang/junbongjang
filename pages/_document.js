@@ -38,6 +38,10 @@ class MyDocument extends Document {
           {/* <!-- Favicon  --> */}
           <link rel="icon" href="images/favicon.ico" />
 
+          {/* For styling code blocks */}
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+          <script>hljs.initHighlightingOnLoad();</script>
         
           
           <Script src="https://use.fontawesome.com/fb615be7a2.js" />

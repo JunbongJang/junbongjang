@@ -100,9 +100,11 @@ export function renderBlock(block) {
     case 'code':
       return (
         <pre className={styles.pre}>
-          <code className={styles.code_block} key={id}>
-            {value.rich_text[0].plain_text}
-          </code>
+          <div className={styles.code_block} key={id}>
+            <code class='python'>
+              {value.rich_text[0].plain_text}
+            </code>
+          </div>
         </pre>
       );
     case 'file': {

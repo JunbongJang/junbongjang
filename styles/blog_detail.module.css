@@ -1,6 +1,8 @@
+
+
 .ImageWidthFlex {
-  width: 60%;
-  max-width: 850px;
+  width: 80%;
+  max-width: 512px;
   height: auto;
   display: block;
   margin-left: auto;
