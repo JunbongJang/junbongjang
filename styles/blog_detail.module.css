@@ -1,4 +1,15 @@
 
+.header_font {
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+.body_font {
+  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.list_item {
+  margin-bottom: 0.5rem;
+}
 
 .ImageWidthFlex {
   width: 80%;
@@ -36,7 +47,10 @@
   color: rgb(55, 53, 47);
   -webkit-font-smoothing: antialiased;
 
-  font: 400 1rem Nunito, 'sans-serif';
+  /* font: 400 1rem Nunito, 'sans-serif'; */
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.8rem;
 }
 
 .PostDetailCard {

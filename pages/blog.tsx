@@ -115,7 +115,7 @@ export default function Blog({ blogs }) {
                   }
                   
                   <header>
-                    <h3>{blog.properties.이름.title[0].plain_text}</h3>
+                    <h3 className={styles.header3}>{blog.properties.이름.title[0].plain_text}</h3>
                     <span>{
                     formatDistanceToNow(new Date(blog.created_time), {  // blog.properties.생성일.date.start
                       locale: enUS,

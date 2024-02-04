@@ -1,4 +1,13 @@
 /* ----------------From Home.module.css ---------------- */
+
+.header3 {
+	color: #24262a;
+	font-weight: 700;
+	font-size: 1.75rem;
+	line-height: 2.25rem;
+	font-family: "Poppins"
+}
+
 .grid {
     display: flex;
     align-items: center;

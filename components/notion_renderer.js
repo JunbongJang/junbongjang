@@ -20,26 +20,26 @@ export function renderBlock(block) {
       
       return (
         value.rich_text.length > 0 ? (
-        <p>
+        <p className={styles.body_font}>
           <Text title={value.rich_text} />
         </p> ) : ( <br/> )
       );
       
     case 'heading_1':
       return (
-        <h1>
+        <h1 className={styles.header_font}>
           <Text title={value.rich_text} />
         </h1>
       );
     case 'heading_2':
       return (
-        <h2>
+        <h2 className={styles.header_font}>
           <Text title={value.rich_text} />
         </h2>
       );
     case 'heading_3':
       return (
-        <h3>
+        <h3 className={styles.header_font}>
           <Text title={value.rich_text} />
         </h3>
       );
@@ -52,7 +52,7 @@ export function renderBlock(block) {
     case 'bulleted_list_item':
     case 'numbered_list_item':
       return (
-        <li key={block.id}>
+        <li key={block.id} className={`${styles.list_item} ${styles.body_font}`}>
           <Text title={value.rich_text} />
           {/* eslint-disable-next-line no-use-before-define */}
           {!!value.children && renderNestedList(block)}
@@ -60,7 +60,7 @@ export function renderBlock(block) {
       );
     case 'to_do':
       return (
-        <div>
+        <div className={styles.body_font}>
           <label htmlFor={id}>
             <input type="checkbox" id={id} defaultChecked={value.checked} />
             {' '}
@@ -70,7 +70,7 @@ export function renderBlock(block) {
       );
     case 'toggle':
       return (
-        <details>
+        <details className={styles.body_font}>
           <summary>
             <Text title={value.rich_text} />
           </summary>
@@ -90,7 +90,11 @@ export function renderBlock(block) {
       const src = value.type === 'external' ? value.external.url : value.file.url;
       const caption = 'content image' // value.caption ? value.caption[0]?.plain_text : 'content image';
       return (
+        <>
+        <br></br>
         <Image src={src} alt={caption} width="768" height="768" className={styles.ImageWidthFlex} />
+        <br></br>
+        </>
       );
     }
     case 'divider':
@@ -135,7 +139,7 @@ export function renderBlock(block) {
     }
     case 'table': {
       return (
-        <table className={styles.table}>
+        <table className={`${styles.table} ${styles.body_font}`}>
           <tbody>
             {block.children?.map((child, index) => {
               const RowElement = value.has_column_header && index === 0 ? 'th' : 'td';

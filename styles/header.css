@@ -9,6 +9,7 @@
 	line-height: 0.875rem;
 	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.025);
 	padding: 0.5rem 1rem 0.5rem 1rem;
+	font-family: "Open Sans", sans-serif;
 }
 
 .navbar .navbar-brand {

@@ -1,7 +1,6 @@
 import  "../styles/bootstrap.css"
 import  "../styles/custom_styles.css"
 import '../styles/header.css'
-import '../styles/home_page.css'
 import '../styles/global.css'
 import  "../styles/fontawesome-all.css"
 

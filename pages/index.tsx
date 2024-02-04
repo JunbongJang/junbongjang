@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 
+import styles from '../styles/home_page.module.css';
+
 import carousel_hallsan from "../public/images/home_hallasan.jpg";
 import carousel_suwolbong from "../public/images/home_suwolbong.jpg";
 import carousel_kaist from "../public/images/home_KAIST.jpg";
@@ -16,7 +18,7 @@ import profile_junbong from "../public/images/profile_junbong3.png";
 
 
 const home_body = (
-    <>
+    <div className={styles.body_paragraph}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Junbong Jang</title>
@@ -49,33 +51,34 @@ const home_body = (
           </div>
         </div>
   
-        <a className="carousel-control-prev" href="#header" role="button" data-slide="prev">
+        <a className={`carousel-control-prev ${styles.alink}`} href="#header" role="button" data-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
         </a>
-        <a className="carousel-control-next" href="#header" role="button" data-slide="next">
+        <a className={`carousel-control-next ${styles.alink}`} href="#header" role="button" data-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="sr-only">Next</span>
         </a>
       </div>
   
       {/* About*/}
-      <div id="about" className="basic-1 bg-gray">
+      <div id="about" className={`${styles['basic-1']} ${styles['bg-gray']}`}>
           <div className="container">
   
               <div className="row">
                   <div className="col-lg-4" style={{textAlign: "center"}}>
                       <Image className="avatar avatar-circle pb-3" src={profile_junbong} alt="my face" />
                       <div>
-                          <h2>Junbong Jang</h2>
+                          <h2 className={styles.header2}>Junbong Jang</h2>
                           <p>AI Engineer at Cocone M</p>
                       </div>
                       <div className="align-self-center">
                           <a href="https://scholar.google.com/citations?user=Ndu8xqMAAAAJ&hl=en&oi=ao" target="_blank" rel="noreferrer"
-                              style={{textDecoration: "none"}}>
+                              style={{textDecoration: "none"}} className={styles.alink}>
                               <i className="ai ai-google-scholar ai-3x small-icon"></i>
                           </a>
-                          <a href="https://github.com/JunbongJang" target="_blank" rel="noreferrer" style={{textDecoration: "none"}}>
+                          <a href="https://github.com/JunbongJang" target="_blank" rel="noreferrer" style={{textDecoration: "none"}}
+                            className={styles.alink}>
                               <i className="fab fa-github fa-3x small-icon ml-4"></i>
                           </a>
                       </div>
@@ -85,11 +88,11 @@ const home_body = (
                       <div className="row">
                           <div className="col">
                               <p>
-                                  I am the artificial intelligence engineer at <a href="https://www.cocone-m.com/" target="_blank" rel="noreferrer">Cocone M</a>.<br/>
-                                  Before joining Cocone M, I worked on contour tracking of live cells at <a href="https://gsai.kaist.ac.kr/" target="_blank" rel="noreferrer">KAIST</a>
+                                  I am the artificial intelligence engineer at <a href="https://www.cocone-m.com/" className={styles.alink} target="_blank" rel="noreferrer">Cocone M</a>.<br/>
+                                  Before joining Cocone M, I worked on contour tracking of live cells at <a href="https://gsai.kaist.ac.kr/" className={styles.alink} target="_blank" rel="noreferrer">KAIST</a>
                                   supervised by <br/>
-                                  <a href="https://sites.google.com/view/tkkim/home" target="_blank" rel="noreferrer">Dr. Tae-kyun Kim</a>. 
-                                  Before joining KAIST, I worked as a research assistant for <a href="https://scholar.harvard.edu/kwonmoo-lee" target="_blank" rel="noreferrer">Dr. Kwonmoo Lee</a> at Boston Children's Hospital to develop a deep learning-based segmentation pipeline.
+                                  <a href="https://sites.google.com/view/tkkim/home" className={styles.alink} target="_blank" rel="noreferrer">Dr. Tae-kyun Kim</a>. 
+                                  Before joining KAIST, I worked as a research assistant for <a href="https://scholar.harvard.edu/kwonmoo-lee" className={styles.alink} target="_blank" rel="noreferrer">Dr. Kwonmoo Lee</a> at Boston Children's Hospital to develop a deep learning-based segmentation pipeline.
                                   At Worcester Polytechnic Institute, I worked on "Bioinformatics Approach to Diagnose Mental Disorders" for my thesis project, supervised by
                                   Dr. Dmitry Korkin <br/><br/>
   
@@ -100,21 +103,21 @@ const home_body = (
   
                       <div className="row">
                           <div className="col-md-6">
-                              <h4>Education</h4>
+                              <h4 className={styles.header4}>Education</h4>
                               <ul>
                                   <li style={{listStyle: "none", marginBottom: "1rem"}}>
                                       <i className="fas fa-graduation-cap" style={{marginRight: "0.5rem"}}></i>
-                                      <h6 style={{display:"inline"}}>M.S. in Artificial Intelligence</h6>
+                                      <h6 style={{display:"inline"}} className={styles.header6}>M.S. in Artificial Intelligence</h6>
                                       <br/>
-                                      <span className="time">Korea Advanced Institute of Science and Technology (KAIST)</span>
+                                      <span className={styles.school}>Korea Advanced Institute of Science and Technology (KAIST)</span>
                                       <br/>
                                       <small>Aug 2021 - Aug 2023</small>
                                   </li>
                                   <li style={{listStyle: "none"}}>
                                       <i className="fas fa-graduation-cap" style={{marginRight: "0.5rem"}}></i>
-                                      <h6 style={{display:"inline"}}>B.S. in Computer Science</h6>
+                                      <h6 style={{display:"inline"}} className={styles.header6}>B.S. in Computer Science</h6>
                                       <br/>
-                                      <span className="time">Worcester Polytechnic Institute (WPI)</span>
+                                      <span className={styles.school}>Worcester Polytechnic Institute (WPI)</span>
                                       <br/>
                                       <small>Aug 2016 - Dec 2019</small>
                                   </li>
@@ -122,11 +125,11 @@ const home_body = (
                           </div> {/* end of col */}
   
                           <div className="col-md-6">
-                              <h4>Contact</h4>
+                              <h4  className={styles.header4}>Contact</h4>
                               <ul >
                                   <li style={{listStyle: "none", marginBottom:"1rem"}}>
                                       <i className="fas fa-envelope" style={{marginRight: "0.5rem"}}></i>
-                                      <h6 style={{display:"inline"}}>junbongjang@kaist.ac.kr</h6>
+                                      <h6 style={{display:"inline"}} className={styles.header6}>junbongjang@kaist.ac.kr</h6>
                                   </li>
                               </ul>
                           </div> {/* end of col */}
@@ -140,11 +143,11 @@ const home_body = (
       {/* end of about */}
   
       {/* Projects */}
-      <div id="projects" className="basic-3">
+      <div id="projects" className={styles['basic-3']}>
           <div className="container">
               <div className="row">
                   <div className="col">
-                      <h2 className="pb-3">Projects</h2>
+                      <h2 className={`pb-5 ${styles.header2}`}>Projects</h2>
                   </div> {/* end of col */}
               </div> {/* end of row */}
   
@@ -164,7 +167,9 @@ const home_body = (
                           <strong>NeurIPS 2023</strong>
                       </p>
                       <p>
-                          <a href="https://arxiv.org/abs/2307.08100" className="link-no-deco"> Paper </a>
+                          <Link href="https://jyunlee.github.io/projects/fourier-hand-flow/" className="link-no-deco"> Project Page </Link> /
+                          <a href="https://arxiv.org/abs/2307.08100" className="link-no-deco"> Paper </a> /
+                          <a href="https://github.com/jyunlee/FourierHandFlow" className="link-no-deco"> Code </a>
                       </p>
                   </div>
               </div> {/* end of row */}
@@ -209,8 +214,8 @@ const home_body = (
                           <strong>Scientific Reports, 2023</strong>
                       </p>
                       <p>
-                          <a href="https://www.nature.com/articles/s41598-023-40652-1" className="link-no-deco"> Paper </a> /
-                          <a href="https://github.com/kleelab-bch/FNA" className="link-no-deco"> Code </a>
+                          <a href="https://www.nature.com/articles/s41598-023-40652-1"  className="link-no-deco"> Paper </a> /
+                          <a href="https://github.com/kleelab-bch/FNA"  className="link-no-deco"> Code </a>
                       </p>
                   </div>
               </div> {/* end of row */}
@@ -288,7 +293,7 @@ const home_body = (
       {/* end of projects */}
   
   
-    </>
+    </div>
 );
   
 

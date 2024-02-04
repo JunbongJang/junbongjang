@@ -3,13 +3,12 @@
 /**************************/
 
 
-body, p {
+.body_paragraph {
 	color: #4d5055; 
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
-	/* font: 400 1rem/1.225rem "Cambria", sans-serif; */
 }
 
-h1 {
+.header1 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 2.5rem;
@@ -17,7 +16,7 @@ h1 {
 	font-family: "Poppins"
 }
 
-h2 {
+.header2 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 2rem;
@@ -25,7 +24,7 @@ h2 {
 	font-family: "Poppins"
 }
 
-h3 {
+.header3 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 1.75rem;
@@ -33,7 +32,7 @@ h3 {
 	font-family: "Poppins"
 }
 
-h4 {
+.header4 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 1.5rem;
@@ -41,7 +40,7 @@ h4 {
 	font-family: "Poppins"
 }
 
-h5 {
+.header5 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 1.25rem;
@@ -49,7 +48,7 @@ h5 {
 	font-family: "Poppins"
 }
 
-h6 {
+.header6 {
 	color: #24262a;
 	font-weight: 700;
 	font-size: 1rem;
@@ -81,12 +80,12 @@ h6 {
 	margin-bottom: 0.5rem;
 }
 
-a {
+.alink {
 	color: #4d5055;
 	text-decoration: underline;
 }
 
-a:hover {
+.alink:hover {
 	color: #4d5055;
 	text-decoration: underline;
 }
@@ -261,7 +260,7 @@ a:hover {
 	color: #7d838a;
 }
 
-select {
+.aselect {
     /* you should keep these first rules in place to maintain cross-browser behavior */
     -webkit-appearance: none;
 	-moz-appearance: none;
@@ -306,7 +305,7 @@ select {
 	line-height: 1.25rem;
 }
 
-input[type='checkbox'] {
+.checkbox_input[type='checkbox'] {
 	vertical-align: -10%;
 	margin-right: 0.5rem;
 }
@@ -345,7 +344,7 @@ input[type='checkbox'] {
 	margin-bottom: 3rem;
 }
 
-.basic-1 .time {
+.basic-1 .school {
 	margin-bottom: 0.5rem;
 	color: #c3251d;
 	font-weight: 600;
@@ -398,7 +397,7 @@ input[type='checkbox'] {
 /*     Projects     */
 /********************/
 .basic-3 {
-	padding-top: 4rem;
+	padding-top: 3rem;
 	padding-bottom: 2rem;
 }
 
