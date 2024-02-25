@@ -42,9 +42,8 @@ export default function Blog({ blogs }) {
     setFilteredBlogs(filteredBlogs);
     
     console.log('filteredBlogs', filteredBlogs);
-    // console.log('searchText', searchText);
     setBlogCounter(filteredBlogs.length);
-  }, [searchText, blogs])
+  }, [searchText])
 
   
 
