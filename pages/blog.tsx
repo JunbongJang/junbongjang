@@ -12,6 +12,10 @@ import Image from 'next/image';
 
 import { NotionAPI } from 'notion-client'
 
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useDebouncedCallback } from 'use-debounce';
+import Pagination from '../components/pagination';
+
 
 function formatText(text: string, limitLength = 50) {
   const textArr = text.split(" ")
@@ -22,30 +26,81 @@ function formatText(text: string, limitLength = 50) {
   return `${newText.toString().replaceAll(",", " ")}...`
 }
 
+
 export default function Blog({ blogs }) {
+  const TOTAL_BLOG_PER_PAGE = 12
+  const TOTAL_BLOGS = blogs.length
 
-  console.log(blogs)
-  // using useEffect, filter out blogs if their title and search text match
-  const [filteredBlogs, setFilteredBlogs] = useState(blogs)
-  const [searchText, setSearchText] = useState('')
+  // for getting search query and blog pagination
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  // ----------- using useEffect, filter out blogs if their title and search text match
+  const [searchedBlogs, setSearchedBlogs] = useState(blogs)
+  const [shownBlogs, setShownBlogs] = useState(blogs)
   const [blogCounter, setBlogCounter] = useState(blogs.length)
+  let default_search_text = searchParams.get('query')?.toString()  // get search text in the url query
+  if (!default_search_text) {
+    default_search_text = ''
+  }
+  const [searchText, setSearchText] = useState(default_search_text)
+  const [totalPages, setTotalPages] = useState(blogs.length)
 
-  useEffect(() => {
-    const filteredBlogs = blogs.filter(blog => {
+
+  const handleSearch = useDebouncedCallback((input_searchText) => {  // to prevent a new database query on every keystroke
+    // --------- filter blog list by search text
+    let cur_searchedBlogs = blogs.filter(blog => {
       const blog_title = blog.properties.이름.title[0].plain_text;
 
       let visible_blog = (blog.properties.태그.multi_select[0] === undefined)
-      visible_blog = visible_blog &&  blog_title.toLowerCase().includes(searchText.toLowerCase())
+      visible_blog = visible_blog &&  blog_title.toLowerCase().includes(input_searchText.toLowerCase())
 
       return visible_blog
     })
-    setFilteredBlogs(filteredBlogs);
+
+    console.log('searchedBlogs after search text', cur_searchedBlogs.length);
+    setTotalPages(Math.ceil(cur_searchedBlogs.length / TOTAL_BLOG_PER_PAGE));
+    setSearchedBlogs(cur_searchedBlogs);
+    setBlogCounter(cur_searchedBlogs.length);
     
-    console.log('filteredBlogs', filteredBlogs);
-    setBlogCounter(filteredBlogs.length);
+    // ------- update url query
+    const params = new URLSearchParams(searchParams);
+    params.set('page', '1');
+    if (input_searchText) {
+      params.set('query', input_searchText);
+    } else {
+      params.delete('query');
+    }
+    replace(`${pathname}?${params.toString()}`);
+
+    // ------- go to the first page after search
+    const page = 1
+    const start = (page - 1) * TOTAL_BLOG_PER_PAGE
+    const end = page * TOTAL_BLOG_PER_PAGE
+    const sliced_searchedBlogs = cur_searchedBlogs.slice(start, end)
+    setShownBlogs(sliced_searchedBlogs);
+
+  }, 300);
+  
+  useEffect(() => {
+    handleSearch(searchText)
   }, [searchText])
 
   
+  const update_blog_list_after_page_click = ( () => {
+    let page = parseInt(searchParams.get('page')?.toString())  // check if page string is integer or not
+    if (!page || page > Math.ceil(TOTAL_BLOGS / TOTAL_BLOG_PER_PAGE) ) {
+      page = 1
+    }
+    const start = (page - 1) * TOTAL_BLOG_PER_PAGE
+    const end = page * TOTAL_BLOG_PER_PAGE
+    console.log(searchedBlogs.length, 'searchedBlogs')
+    const sliced_searchedBlogs = searchedBlogs.slice(start, end)
+    console.log(sliced_searchedBlogs.length, 'sliced_searchedBlogs')
+    setShownBlogs(sliced_searchedBlogs);
+
+    } ); 
 
   
   return (
@@ -58,7 +113,7 @@ export default function Blog({ blogs }) {
 
       {/* Create image container */}
       <div className={styles.blog_title_image_container}>
-        <Image className={styles.blog_title_image} src={blog_title_image} alt="JJ's Blog" />
+        <Image className={`mx-auto ${styles.blog_title_image}`} src={blog_title_image} alt="JJ's Blog" />
       </div>
 
       <main className={styles.blog_container}>
@@ -78,13 +133,14 @@ export default function Blog({ blogs }) {
               type="text"
               onChange={(e) => setSearchText(e.target.value)}
               placeholder="Search Blogs"
+              defaultValue={searchText}
             />
           </div>
 
 
           <div className={styles.list_section}>
-            {filteredBlogs &&
-              filteredBlogs.map((blog) => (
+            {shownBlogs &&
+              shownBlogs.map((blog) => (
 
                 <Link 
                   key={blog.id}
@@ -132,6 +188,9 @@ export default function Blog({ blogs }) {
           </div>
 
         </div>
+        
+        <Pagination totalPages={totalPages} changeBlogList={update_blog_list_after_page_click} />
+        
         
         
       </main>

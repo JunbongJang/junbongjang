@@ -151,7 +151,7 @@ const home_body = (
                   </div> {/* end of col */}
               </div> {/* end of row */}
   
-              <div className="row mb-5">
+              <div className="row mb-5 pt-3">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_fourierhandflow} alt="Fourier Hand Flow" />
@@ -163,9 +163,11 @@ const home_body = (
                       <p><strong>FourierHandFlow: Neural 4D Hand Representation Using Fourier Query Flow</strong><br/>
                           Jihyun Lee, <b>Junbong Jang</b>, Donghwan Kim, Minhyuk Sung, Tae-Kyun Kim
                       </p>
+                      <br></br>
                       <p>
                           <strong>NeurIPS 2023</strong>
                       </p>
+                      <br></br>
                       <p>
                           <Link href="https://jyunlee.github.io/projects/fourier-hand-flow/" className="link-no-deco"> Project Page </Link> /
                           <a href="https://arxiv.org/abs/2307.08100" className="link-no-deco"> Paper </a> /
@@ -174,7 +176,7 @@ const home_body = (
                   </div>
               </div> {/* end of row */}
   
-              <div className="row mb-5">
+              <div className="row mb-5 pt-5">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_contour_tracking} alt="CVPR 2023 project" />
@@ -186,9 +188,11 @@ const home_body = (
                       <p><strong>Unsupervised Contour Tracking of Live Cells by Mechanical and Cycle Consistency Losses</strong><br/>
                           <b>Junbong Jang</b>, Kwonmoo Lee, Tae-Kyun Kim
                       </p>
+                      <br></br>
                       <p>
                           <strong>Computer Vision and Pattern Recognition (CVPR), 2023</strong>
                       </p>
+                      <br></br>
                       <p>
                           <Link href="https://junbongjang.github.io/projects/contour-tracking/index.html" className="link-no-deco"> Project Page </Link> /
                           <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Jang_Unsupervised_Contour_Tracking_of_Live_Cells_by_Mechanical_and_Cycle_CVPR_2023_paper.pdf" className="link-no-deco"> Paper </a> /
@@ -198,7 +202,7 @@ const home_body = (
               </div> {/* end of row */}
   
           
-              <div className="row mb-5">
+              <div className="row mb-5 pt-5">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_FNA} alt="project FNA" />
@@ -210,9 +214,11 @@ const home_body = (
                           <strong>Screening adequacy of unstained thyroid fine needle aspiration samples using a deep learning-based classifier</strong><br/>
                           <b>Junbong Jang</b>, Young Kim, Brian Westgate, Yang Zong, Caleb Hallinan, Ali Akalin, Kwonmoo Lee<br/>
                       </p>
+                      <br></br>
                       <p>
                           <strong>Scientific Reports, 2023</strong>
                       </p>
+                      <br></br>
                       <p>
                           <a href="https://www.nature.com/articles/s41598-023-40652-1"  className="link-no-deco"> Paper </a> /
                           <a href="https://github.com/kleelab-bch/FNA"  className="link-no-deco"> Code </a>
@@ -220,7 +226,7 @@ const home_body = (
                   </div>
               </div> {/* end of row */}
   
-              <div className="row mb-5">
+              <div className="row mb-5 pt-5">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_ksum2023} alt="KSUM 2023" />
@@ -233,16 +239,18 @@ const home_body = (
                           Connie Ge*, <b>Junbong Jang*</b>, Patrick Svrcek, Victoria Fleming, Young Hwan Kim <br/>
                           *equal contribution
                       </p>
+                      <br></br>
                       <p>
                           <strong>Korean Society of Ultrasound in Medicine (KSUM), 2023</strong>
                       </p>
+                      <br></br>
                       <p>
                           <a href="https://2023.ksum.or.kr/file/sub_file/SS03-P2_Abstract.pdf" className="link-no-deco"> Paper </a>
                       </p>
                   </div>
               </div> {/* end of row */}
   
-              <div className="row mb-5">
+              <div className="row mb-5 pt-5">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_MQP_2022} alt="project MQP 2022" />
@@ -254,9 +262,11 @@ const home_body = (
                       <p><strong>Unravelling psychiatric heterogeneity and predicting suicide attempts in women with trauma-related dissociation using artificial intelligence</strong><br/>
                           Suhas Srinivasan, Nathaniel G. Harnett, Liang Zhang, M. Kathryn Dahlgren, <b>Junbong Jang</b>, Senbao Lu, Benjamin C Nephew, Cori A Palermo, Xi Pan, Mohamed Y Eltabakh, Blaise B. Frederick, Staci A. Gruber, Milissa L. Kaufman, Jean King, Kerry J. Ressler, Sherry Winternitz, Dmitry Korkin, and Lauren A. M. Lebois.<br/>
                       </p>
+                      <br></br>
                       <p>
                           <strong>European Journal of Psychotraumatology, 2022</strong>
                       </p>
+                      <br></br>
                       <p>
                           <a href="https://www.tandfonline.com/doi/full/10.1080/20008066.2022.2143693" className="link-no-deco"> Paper </a> /
                           <a href="https://web.wpi.edu/Pubs/E-project/Available/E-project-121319-131710/" className="link-no-deco"> My B.S. thesis </a>
@@ -266,7 +276,7 @@ const home_body = (
               </div> {/* end of row */}
   
   
-              <div className="row mb-5">
+              <div className="row mb-5 pt-5">
                   <div className="col-lg-4">
                       <div className="image-container">
                           <Image className="img-fluid" src={project_marsnet} alt="marsnet" />
@@ -276,10 +286,12 @@ const home_body = (
                   <div className="col-lg-8">
                       <p><strong>A deep learning-based segmentation pipeline for profiling cellular morphodynamics using multiple types of live cell microscopy</strong> <br/>
                           <b>Junbong Jang</b>, Chuangqi Wang, Xitong Zhang, Hee June Choi, Xiang Pan, Bolun Lin, Yudong Yu, Carly Whittle, Madison Ryan, Yenyu Chen, Kwonmoo Lee <br/>
-                      </p>
+                      </p> 
+                      <br></br>
                       <p>
                           <strong>Cell Reports Methods, 2021</strong>
                       </p>
+                      <br></br>
                       <p>
                           <a href="https://www.cell.com/cell-reports-methods/fulltext/S2667-2375(21)00164-8" className="link-no-deco"> Paper </a> /
                           <a href="https://github.com/kleelab-bch/MARS-Net" className="link-no-deco"> Code </a>
