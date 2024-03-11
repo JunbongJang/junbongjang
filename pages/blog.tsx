@@ -27,7 +27,8 @@ function formatText(text: string, limitLength = 50) {
 }
 
 
-export default function Blog({ blogs }) {
+export default function Blog({ blogs, record_map }) {
+  
   const TOTAL_BLOG_PER_PAGE = 12
   const TOTAL_BLOGS = blogs.length
 
@@ -229,6 +230,10 @@ export default function Blog({ blogs }) {
 
 export async function getServerSideProps() {
 
+  // const notion_api = new NotionAPI();
+  
+  // const recordMap = await notion_api.getPage('bf66126a909e4d98983f0d5eee3ef57a')
+
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const response_blogs = await notion.databases.query({
     database_id: process.env.NOTION_DATABSE_ID,
@@ -237,6 +242,7 @@ export async function getServerSideProps() {
   return {
     props: {
       blogs: response_blogs.results,
+      // record_map: recordMap
     }
   };
 }

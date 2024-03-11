@@ -5,6 +5,7 @@
 
 .body_font {
   font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  margin-bottom: 1rem;
 }
 
 .list_item {
