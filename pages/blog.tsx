@@ -28,7 +28,21 @@ function formatText(text: string, limitLength = 50) {
 
 
 export default function Blog({ blogs, record_map }) {
-  
+
+  // console.log('--------------------------')
+  // console.log(record_map, 'record_map')
+  // console.log(record_map['block'], 'block')
+  // console.log(record_map['collection'], 'collection')
+  // const sorted_page_id_list = Object.values(record_map['collection_view'])[0].value.page_sort
+
+  // for (let i = 0; i < sorted_page_id_list.length; i++) {
+  //   const page_id = sorted_page_id_list[i];
+  //   // console.log(record_map['block'][page_id])
+  // }
+  // convert dict to list of key-value pairs
+  // console.log(blogs, 'blogs')
+  // blogs = Object.keys(record_map['block']).map((key) => record_map['block'][key].value);
+  // console.log(blogs, 'new blogs')
   const TOTAL_BLOG_PER_PAGE = 12
   const TOTAL_BLOGS = blogs.length
 
@@ -55,6 +69,7 @@ export default function Blog({ blogs, record_map }) {
       const blog_title = blog.properties.이름.title[0].plain_text;
 
       let visible_blog = (blog.properties.태그.multi_select[0] === undefined)
+      console.log("@@@@#", blog.properties.태그)
       visible_blog = visible_blog &&  blog_title.toLowerCase().includes(input_searchText.toLowerCase())
 
       return visible_blog
@@ -150,7 +165,7 @@ export default function Blog({ blogs, record_map }) {
                   }}
                   className={styles.card}
                 >
-                  { blog.cover != null ?
+                  { blog.cover != null && blog.cover.file != null ?
                     <Image
                       src={blog.cover.file.url}
                       className={styles.card_image}
@@ -192,8 +207,6 @@ export default function Blog({ blogs, record_map }) {
         
         <Pagination totalPages={totalPages} changeBlogList={update_blog_list_after_page_click} />
         
-        
-        
       </main>
 
     </>
@@ -230,9 +243,9 @@ export default function Blog({ blogs, record_map }) {
 
 export async function getServerSideProps() {
 
-  // const notion_api = new NotionAPI();
+  const notion_api = new NotionAPI();
   
-  // const recordMap = await notion_api.getPage('bf66126a909e4d98983f0d5eee3ef57a')
+  const recordMap = await notion_api.getPage(process.env.NOTION_DATABSE_ID)
 
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const response_blogs = await notion.databases.query({
@@ -242,7 +255,7 @@ export async function getServerSideProps() {
   return {
     props: {
       blogs: response_blogs.results,
-      // record_map: recordMap
+      record_map: recordMap
     }
   };
 }
